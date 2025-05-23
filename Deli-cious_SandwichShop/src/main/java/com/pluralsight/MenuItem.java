@@ -14,8 +14,12 @@ public abstract class MenuItem implements Priceable{
         return name;
     }
 
+    protected void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString(){
-        return name + " -$" + getPrice();
+        return name + " -$" + String.format("%.2f", getPrice()) + "\n";
     }
 }
