@@ -5,6 +5,11 @@ public abstract class Topping {
     protected String name;
     protected String category;
 
+    protected Topping(String name, String category) {
+        this.name = name;
+        this.category = category;
+    }
+
     //          === Abstract Methods ===
     public abstract double getPriceForSize(String size);
     public abstract boolean supportsExtra();
