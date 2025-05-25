@@ -110,6 +110,10 @@ public class Sandwich extends MenuItem implements Priceable,Customizable{
         return size;
     }
 
+    public void setToasted(boolean toasted) {
+        isToasted = toasted;
+    }
+
     /**
      * Sets the size of the sandwich.
      * The input size is first normalized and validated. If the size is valid,
@@ -301,7 +305,7 @@ public class Sandwich extends MenuItem implements Priceable,Customizable{
      */
     @Override
     public double getPrice() {
-        return getBasePrice() + getToppingsTotal();
+        return Double.parseDouble(String.format("%.2f",getBasePrice() + getToppingsTotal()));
     }
 
     /**
