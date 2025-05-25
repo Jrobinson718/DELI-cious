@@ -69,7 +69,6 @@ public class Order {
     public String generateReceiptFormat() {
         StringBuilder receipt = new StringBuilder();
 
-        receipt.append("=== DELI-cious ===\n");
         receipt.append("Order Details:\n");
         receipt.append("-----------------\n");
 
