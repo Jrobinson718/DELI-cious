@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -110,6 +111,10 @@ public class Sandwich extends MenuItem implements Priceable,Customizable{
         return size;
     }
 
+    public boolean isToasted() {
+        return isToasted;
+    }
+
     public void setToasted(boolean toasted) {
         isToasted = toasted;
     }
@@ -182,6 +187,10 @@ public class Sandwich extends MenuItem implements Priceable,Customizable{
                     "\nInvalid Bread Type: '" + breadType + "'. Valid Bread Types: ('White', 'Wheat', 'Rye', 'Wrap').\n"
             );
         }
+    }
+
+    public List<ToppingOrder> getToppings() {
+        return Collections.unmodifiableList(toppings);
     }
 
     /**

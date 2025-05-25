@@ -1,6 +1,6 @@
 package com.pluralsight;
 
-public class Chips extends MenuItem{
+public class Chips extends MenuItem {
 
     public Chips(String name) {
         super(name);
