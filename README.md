@@ -76,8 +76,7 @@ place `assets/sandwich_add_topping.png` with the actual path to your screenshot)
 
 This diagram illustrates the relationships, inheritance, and interfaces within the DELI-cious project, providing a high-level overview of its architecture.
 
-![UML Class Diagram](![Editor _ Mermaid Chart-2025-05-29-224530](https://github.com/user-attachments/assets/41d7acf8-28ef-412b-9318-5d70a2c99a84)
-)
+![UML Class Diagram](![Editor _ Mermaid Chart-2025-05-29-231613](https://github.com/user-attachments/assets/732e2002-74a9-4c90-9691-4d4477ba30c4)
 
 ## How to Run the Application
 
