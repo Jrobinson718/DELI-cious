@@ -44,6 +44,10 @@ public class Order {
                 .sum();
     }
 
+    public void clearOrder() {
+        this.orderItems.clear();
+    }
+
     /**
      * Returns an unmodifiable view of the list of {@link MenuItem}s in this order.
      * This prevents direct modification of the order's item list from outside the class.

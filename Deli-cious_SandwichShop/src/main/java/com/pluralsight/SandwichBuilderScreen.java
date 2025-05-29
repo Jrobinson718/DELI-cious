@@ -12,6 +12,7 @@ public class SandwichBuilderScreen {
         this.console = console;
     }
 
+    //          === Methods ===
     /**
      * Guides the user through building a brand new custom sandwich.
      * This method handles selecting the base bread and size, adding toppings,
