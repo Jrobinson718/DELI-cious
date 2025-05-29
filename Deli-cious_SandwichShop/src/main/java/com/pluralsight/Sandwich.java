@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 public class Sandwich extends MenuItem implements Priceable{
     //          === Constant Variables ===
@@ -71,13 +72,15 @@ public class Sandwich extends MenuItem implements Priceable{
     //          === Instance Variables ===
     private String size;
     private String breadType;
-    private List<ToppingOrder> toppings;
+    private List<Topping> toppings;
+    private List<Boolean> isExtra;
     private boolean isToasted;
 
     //          === Constructor ===
     public Sandwich(String size, String breadType) {
         super("Sandwich");
         this.toppings = new ArrayList<>();
+        this.isExtra = new ArrayList<>();
         this.isToasted = false;
         setSize(size);
         setBreadType(breadType);
@@ -189,7 +192,7 @@ public class Sandwich extends MenuItem implements Priceable{
         }
     }
 
-    public List<ToppingOrder> getToppings() {
+    public List<Topping> getToppings() {
         return Collections.unmodifiableList(toppings);
     }
 
@@ -227,13 +230,14 @@ public class Sandwich extends MenuItem implements Priceable{
             return;
         }
 
+        boolean extras = extra;
         if (extra && !topping.supportsExtra()) {
             System.out.println("Note: " + topping.getName() + " cannot be extra. Adding regular amount.");
-            extra = false;
+            extras = false;
         }
 
-        ToppingOrder toppingOrder = new ToppingOrder(topping, extra);
-        this.toppings.add(toppingOrder);
+        this.toppings.add(topping);
+        this.isExtra.add(extras);
     }
 
     /**
@@ -250,7 +254,13 @@ public class Sandwich extends MenuItem implements Priceable{
         if (topping == null) {
             return;
         }
-        toppings.removeIf(order -> order.getTopping().equals(topping));
+
+        for (int i = toppings.size() - 1; i >= 0; i--) {
+            if (toppings.get(i).equals(topping)) {
+                toppings.remove(i);
+                isExtra.remove(i);
+            }
+        }
     }
 
     /**
@@ -271,10 +281,25 @@ public class Sandwich extends MenuItem implements Priceable{
             return;
         }
 
-        toppings.stream()
-                .filter(order -> order.getTopping().equals(topping) && order.isExtra() == extra)
-                .findFirst()
-                .ifPresent(toppings::remove);
+        for (int i = 0; i < toppings.size(); i++) {
+            if (toppings.get(i).equals(topping) && isExtra.get(i) == extra) {
+                toppings.remove(i);
+                isExtra.remove(i);
+                return;
+            }
+        }
+    }
+
+    /**
+     * Calculates the total price of this item, fulfilling the contract from the {@link Priceable} interface.
+     * The price is determined by summing the item's base price (based on its size)
+     * and the total cost of all its added toppings.
+     *
+     * @return The total calculated price of the item as a double.
+     */
+    @Override
+    public double getPrice() {
+        return getBasePrice() + getToppingsTotal();
     }
 
     /**
@@ -302,20 +327,14 @@ public class Sandwich extends MenuItem implements Priceable{
      * @return The sum of the prices of all toppings as a double.
      */
     private double getToppingsTotal() {
-        return toppings.stream()
-                .mapToDouble(order -> order.getPrice(this.size))
+        return IntStream.range(0, toppings.size())
+                .mapToDouble(i -> {
+                    Topping topping = toppings.get(i);
+                    boolean toppingExtraStatus = isExtra.get(i);
+                    return topping.getPrice(this.size, toppingExtraStatus);
+                })
                 .sum();
     }
 
-    /**
-     * Calculates the total price of this item, fulfilling the contract from the {@link Priceable} interface.
-     * The price is determined by summing the item's base price (based on its size)
-     * and the total cost of all its added toppings.
-     *
-     * @return The total calculated price of the item as a double.
-     */
-    @Override
-    public double getPrice() {
-        return getBasePrice() + getToppingsTotal();
-    }
+
 }
