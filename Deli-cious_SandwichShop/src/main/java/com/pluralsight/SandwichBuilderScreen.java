@@ -27,9 +27,9 @@ public class SandwichBuilderScreen {
         while (sandwich == null) {
             try {
                 String sizeInput = console.promptForString("Enter sandwich size." +
-                        "Available sizes include (4\", 8\", 12\"):");
+                        "Available sizes include (4\", 8\", 12\"): ");
                 String breadTypeInput = console.promptForString("Enter bread type." +
-                        "Available bread types include (White, Wheat, Rye, Wrap):");
+                        "\nAvailable bread types include (White, Wheat, Rye, Wrap): ");
                 sandwich = new Sandwich(sizeInput, breadTypeInput);
                 System.out.println("Starting your " + sandwich.getName() + ".");
             }catch (IllegalArgumentException e) {
@@ -130,7 +130,7 @@ public class SandwichBuilderScreen {
 
             boolean addAsExtra = false;
             if (selectedTopping.supportsExtra()) {
-                String extraChoice = console.promptForString("Add extra " + selectedTopping.getName() + "?" +
+                String extraChoice = console.promptForString("\nAdd extra " + selectedTopping.getName() + "?" +
                         "(Yes/No):");
                 if (extraChoice.equalsIgnoreCase("yes")) {
                     int currentExtraToppingCount = 0;
@@ -163,7 +163,7 @@ public class SandwichBuilderScreen {
             }
             sandwich.addTopping(selectedTopping, addAsExtra);
             System.out.println(selectedTopping.getName() + (addAsExtra ? " (extra)" : "") + " added to your sandwich.");
-            addMoreChoice = console.promptForString("Add another topping? (Yes/No): ");
+            addMoreChoice = console.promptForString("\nAdd another topping? (Yes/No): ");
         }while (addMoreChoice.equalsIgnoreCase("yes"));
     }
 
@@ -193,7 +193,7 @@ public class SandwichBuilderScreen {
         }
         System.out.println("0) Go back");
 
-        int selection = console.promptForInt("Enter number of topping to remove (0 to go back): ");
+        int selection = console.promptForInt("\nEnter number of topping to remove (0 to go back): ");
         if (selection == 0) {
             return;
         }
@@ -219,7 +219,7 @@ public class SandwichBuilderScreen {
     private void promptForToasting(Sandwich sandwich) {
         String currentStatus = sandwich.isToasted() ? "Yes" : "No";
         String toastedChoice = console.promptForString("Current toasted status: " + currentStatus + "." +
-                "Do you want your sandwich toasted? (Yes/No): ");
+                "\nDo you want your sandwich toasted? (Yes/No): ");
         sandwich.setToasted(toastedChoice.equalsIgnoreCase("yes"));
         System.out.println("Sandwich will be " + (sandwich.isToasted() ? "toasted." : "not toasted."));
     }

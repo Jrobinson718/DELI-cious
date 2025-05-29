@@ -1,0 +1,22 @@
+=== DELI-cious Receipt ===
+Order #: 20250529-173940
+Date: 2025-05-29 17:39:40
+
+Order Details:
+-----------------
+8" White sandwich - $10.50
+  * Toasted
+  + Steak
+  + American
+  + Peppers
+  + Mayo
+Sprite Large - $3.00
+Bbq - $1.50
+12" White sandwich - $22.75
+  * Toasted
+  + Extra Salami
+  + Extra Salami
+  + Salami
+  + Swiss
+-----------------
+Total: $37.75

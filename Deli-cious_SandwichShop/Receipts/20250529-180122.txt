@@ -1,0 +1,21 @@
+=== DELI-cious Receipt ===
+Order #: 20250529-180122
+Date: 2025-05-29 18:01:22
+
+Order Details:
+-----------------
+
+8" White sandwich - $10.50
+  * Toasted
+  + Steak
+  + American
+  + Peppers
+  + Mayo
+
+12" White sandwich - $18.25
+  * Toasted
+  + Extra Steak
+  + Pastrami
+  + Cheddar
+-----------------
+Total: $28.75

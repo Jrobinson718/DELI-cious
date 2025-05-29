@@ -32,8 +32,8 @@ public class CheckoutScreen {
         String paymentMethod = console.promptForString("Enter payment method: ");
 
         if (paymentMethod.equalsIgnoreCase("cash")){
-            System.out.println("Payment received. Processing your order...");
-            System.out.println("Payment successful! Thank you for your order.");
+            System.out.println("\nPayment received. Processing your order...");
+            System.out.println("\nPayment successful! Thank you for your order.\n");
 
             Receipt receipt = new Receipt(order);
             receipt.saveToFile();
@@ -43,6 +43,6 @@ public class CheckoutScreen {
         }else {
             System.out.println("Payment method not recognized or funds insufficient. Please try again.");
         }
-        console.promptForString("Press Enter to return to main menu...");
+        console.promptForString("Press 0 to return to main menu: ");
     }
 }

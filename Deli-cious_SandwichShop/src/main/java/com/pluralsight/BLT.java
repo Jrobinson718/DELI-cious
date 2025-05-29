@@ -4,7 +4,7 @@ public class BLT extends SignatureSandwich{
 
     //          === Constructor ===
     public BLT() {
-        super("BLT", "8", "white");
+        super("BLT", "8", "White");
     }
 
     //          === Abstract Method ===
@@ -30,14 +30,14 @@ public class BLT extends SignatureSandwich{
         Topping cheddar = Topping.getByNumber(9);
         Topping lettuce = Topping.getByNumber(11);
         Topping tomatoes = Topping.getByNumber(14);
-        Topping ranch = Topping.getByNumber(23);
+        Topping mayo = Topping.getByNumber(20);
 
 
         this.addTopping(bacon, false);
         this.addTopping(cheddar, false);
         this.addTopping(lettuce, false);
         this.addTopping(tomatoes, false);
-        this.addTopping(ranch, false);
+        this.addTopping(mayo, false);
 
         this.setToasted(true);
     }

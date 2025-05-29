@@ -1,0 +1,27 @@
+=== DELI-cious Receipt ===
+Order #: 20250529-181352
+Date: 2025-05-29 18:13:52
+
+Order Details:
+-----------------
+
+Philly Cheese Steak - $10.50
+  * Toasted
+  + Steak
+  + American
+  + Peppers
+  + Mayo
+
+8" Rye sandwich - $13.50
+  * Toasted
+  + Steak
+  + American
+  + Extra Pastrami
+
+Pepsi Medium - $2.50
+
+Salt n vinegar - $1.50
+
+Cool ranch - $1.50
+-----------------
+Total: $29.50

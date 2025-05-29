@@ -92,7 +92,7 @@ public class OrderScreen {
     private void handleAddDrink() {
         System.out.println("\n--- Add Drink ---");
 
-        String flavor = console.promptForString("Please enter the drink flavor.");
+        String flavor = console.promptForString("Please enter the drink flavor: ");
         System.out.println("Available sized: " + Drink.SMALL_SIZE + ", " + Drink.MEDIUM_SIZE + ", " + Drink.LARGE_SIZE);
         String size = console.promptForString("Enter drink size ('Small', 'Medium', 'Large' or abbreviations): ");
 
@@ -152,7 +152,7 @@ public class OrderScreen {
         if (selection > 0 && selection <= items.size()) {
             MenuItem itemToRemove = items.get(selection - 1);
             currentOrder.removeItem(itemToRemove);
-            System.out.printf("'%s' removed from order.");
+            System.out.printf("%n'%s' removed from order.%n", itemToRemove.getName());
         }else {
             System.out.println("Invalid selection. Please enter a number from the list.");
         }

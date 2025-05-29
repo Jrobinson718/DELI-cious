@@ -23,7 +23,7 @@ public class Topping {
         AVAILABLE_TOPPINGS.put(1, new Topping("Steak", Topping.MEAT, true));
         AVAILABLE_TOPPINGS.put(2, new Topping("Ham", Topping.MEAT, true));
         AVAILABLE_TOPPINGS.put(3, new Topping("Salami", Topping.MEAT, true));
-        AVAILABLE_TOPPINGS.put(4, new Topping("Chicken", Topping.MEAT, true));
+        AVAILABLE_TOPPINGS.put(4, new Topping("Pastrami", Topping.MEAT, true));
         AVAILABLE_TOPPINGS.put(5, new Topping("Chicken", Topping.MEAT, true));
         AVAILABLE_TOPPINGS.put(6, new Topping("Bacon", Topping.MEAT, true));
         AVAILABLE_TOPPINGS.put(7, new Topping("American", Topping.CHEESE, true));

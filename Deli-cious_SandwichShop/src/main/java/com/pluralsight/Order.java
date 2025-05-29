@@ -79,7 +79,7 @@ public class Order {
         receipt.append("-----------------\n");
 
         for (MenuItem item : orderItems) {
-            receipt.append(String.format("%s - $%.2f%n", item.getName(), item.getPrice()));
+            receipt.append(String.format("%n%s - $%.2f%n", item.getName(), item.getPrice()));
 
             if (item instanceof Sandwich sandwich) {
                 if (sandwich.isToasted()) {

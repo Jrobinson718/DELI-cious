@@ -33,6 +33,7 @@ public abstract class SignatureSandwich extends Sandwich{
     protected SignatureSandwich(String signatureName, String size, String breadType) {
         super(size, breadType);
         this.signatureName = signatureName;
+        setName(signatureName);
         applySignatureToppings();
     }
 
