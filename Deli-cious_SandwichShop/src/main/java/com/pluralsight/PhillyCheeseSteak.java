@@ -25,10 +25,10 @@ public class PhillyCheeseSteak extends SignatureSandwich{
      */
     @Override
     protected void applySignatureToppings(){
-        PremiumTopping steak = new PremiumTopping("Steak", PremiumTopping.MEAT, 1.00, .50);
-        PremiumTopping americanCheese = new PremiumTopping("American Cheese", PremiumTopping.CHEESE, .75, .30);
-        RegularTopping peppers = new RegularTopping("Peppers", RegularTopping.REGULAR);
-        RegularTopping mayo = new RegularTopping("Mayo", RegularTopping.SAUCE);
+        Topping steak = Topping.getByNumber(1);
+        Topping americanCheese = Topping.getByNumber(7);
+        Topping peppers = Topping.getByNumber(12);
+        Topping mayo = Topping.getByNumber(20);
 
         this.addTopping(steak, false);
         this.addTopping(americanCheese, false);

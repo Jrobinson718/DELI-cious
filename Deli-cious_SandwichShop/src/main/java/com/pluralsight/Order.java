@@ -55,13 +55,15 @@ public class Order {
     }
 
     /**
-     * Generates a formatted string representation of the order, suitable for a receipt.
-     * The receipt includes a header, details for each item (including specific details
-     * for sandwiches like toasted status and toppings), and the total order price.
+     * Generates a formatted string representation of the order for a receipt.
+     * The receipt includes a header, details for each item, and the total order price.
      * <p>
      * For each {@link MenuItem}, its name and price are listed.
-     * If an item is a {@link Sandwich}, its toasted status (if applicable) and
-     * each of its toppings (noting if any are "extra") are also detailed.
+     * If an item is a {@link Sandwich}, its toasted status (if applicable) is detailed,
+     * followed by a list of its individual toppings. For each topping, its name is included,
+     * and if it was added as an "extra" portion, that is also noted.
+     * The topping details are retrieved by accessing the sandwich's list of toppings
+     * and a list of boolean statuses to see if each topping is extra.
      * </p>
      *
      * @return A string formatted as a receipt for the current order.
@@ -76,21 +78,23 @@ public class Order {
             receipt.append(String.format("%s - $%.2f%n", item.getName(), item.getPrice()));
 
             if (item instanceof Sandwich sandwich) {
-
                 if (sandwich.isToasted()) {
                     receipt.append("  * Toasted\n");
                 }
 
-                for (ToppingOrder toppingOrder : sandwich.getToppings()) {
-                    String toppingName = toppingOrder.getTopping().getName();
+                List<Topping> toppings = sandwich.getToppings();
+                List<Boolean> extraStatus = sandwich.getToppingExtraStatuses();
 
-                    if (toppingOrder.isExtra()){
+                for (int i = 0; i < toppings.size(); i++) {
+                    Topping topping = toppings.get(i);
+                    boolean isExtra = extraStatus.get(i);
+                    String toppingName = topping.getName();
+                    if (isExtra){
                         receipt.append(String.format("  + Extra %s%n", toppingName));
                     }else {
                         receipt.append(String.format("  + %s%n", toppingName));
                     }
                 }
-
             }
         }
         receipt.append("-----------------\n");

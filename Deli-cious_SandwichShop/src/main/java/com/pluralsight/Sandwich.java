@@ -51,6 +51,10 @@ public class Sandwich extends MenuItem implements Priceable{
         }
     }
 
+    public List<Boolean> getToppingExtraStatuses() {
+        return Collections.unmodifiableList(this.isExtra);
+    }
+
     //          === Methods ===
     /**
      * Adds a topping to the sandwich.
