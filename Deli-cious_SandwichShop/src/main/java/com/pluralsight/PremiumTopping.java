@@ -29,12 +29,22 @@ public class PremiumTopping extends Topping{
      * @return The price for an extra portion of the topping. Defaults to 1.00 for unknown sizes.
      */
     public double getExtraPrice(String size){
-        switch (size) {
-            case "4" -> {return 0.50;}
-            case "8" -> {return 1.00;}
-            case "12" -> {return 1.50;}
-            default -> {return 1.00;}
+        if (category.equals(MEAT)){
+            switch (size) {
+                case "4" -> {return 0.50;}
+                case "8" -> {return 1.00;}
+                case "12" -> {return 1.50;}
+                default -> {return 1.00;}
+            }
+        } else if (category.equals(CHEESE)) {
+            switch (size){
+                case "4" -> {return 0.30;}
+                case "8" -> {return 0.60;}
+                case "12" -> {return 0.90;}
+                default -> {return 0.60;}
+            }
         }
+        return 0;
     }
 
     /**
@@ -45,12 +55,22 @@ public class PremiumTopping extends Topping{
      */
     @Override
     public double getPriceForSize(String size){
-        switch (size){
-            case "4" -> {return 1.00;}
-            case "8" -> {return 2.00;}
-            case "12" -> {return 3.00;}
-            default -> {return 2.00;}
+        if (category.equals(MEAT)){
+            switch (size){
+                case "4" -> {return 1.00;}
+                case "8" -> {return 2.00;}
+                case "12" -> {return 3.00;}
+                default -> {return 2.00;}
+            }
+        }else if (category.equals(CHEESE)){
+            switch (size){
+                case "4" -> {return 0.75;}
+                case "8" -> {return 1.50;}
+                case "12" -> {return 2.25;}
+                default -> {return 1.50;}
+            }
         }
+        return 0;
     }
 
     @Override

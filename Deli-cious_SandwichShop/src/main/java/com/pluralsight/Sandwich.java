@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-public class Sandwich extends MenuItem implements Priceable,Customizable{
+public class Sandwich extends MenuItem implements Priceable{
     //          === Constant Variables ===
     public static final String SIZE_FOUR = "4";
     public static final String SIZE_EIGHT = "8";
@@ -204,6 +204,8 @@ public class Sandwich extends MenuItem implements Priceable,Customizable{
         }
     }
 
+
+
     /**
      * Adds a topping to the order.
      * <p>
@@ -314,22 +316,6 @@ public class Sandwich extends MenuItem implements Priceable,Customizable{
      */
     @Override
     public double getPrice() {
-        return Double.parseDouble(String.format("%.2f",getBasePrice() + getToppingsTotal()));
-    }
-
-    /**
-     * Initiates the customization process for this item, as defined by the {@link Customizable} interface.
-     * <p>
-     * Currently, this method serves as a placeholder. Its full implementation is pending
-     * the development of associated UI screens (e.g., {@code SandwichBuilderScreen})
-     * with which it will interact. For now, it prints a message to the console
-     * indicating that the customization functionality is not yet active.
-     * </p>
-     */
-    @Override
-    public void customize() {
-        // TODO: Implement when UI screens are built
-        // This will eventually interact with SandwichBuilderScreen
-        System.out.println("Customization will be implemented with UI");
+        return getBasePrice() + getToppingsTotal();
     }
 }
